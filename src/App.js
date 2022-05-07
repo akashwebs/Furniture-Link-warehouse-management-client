@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import ManageProduct from './Components/MangeProduct/ManageProduct';
 import MyItem from './Components/MyItem/MyItem';
 import Login from './Components/Login/Login';
+import Registration from './Components/Registration/Registration';
 
 function App() {
   return (
@@ -20,15 +21,15 @@ function App() {
         <Route path='/addItmes' element={<Inventory></Inventory>}></Route>
         <Route path='/inventory/:idName' element={<InventoryDetail></InventoryDetail>}></Route>
         <Route path='/ManageProduct' element={<ManageProduct></ManageProduct>}></Route>
-      <Route path='/myitem' element={<MyItem></MyItem>}></Route>
-      <Route path='/login' element={<Login></Login>}></Route>
-
+        <Route path='/myitem' element={<MyItem></MyItem>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/registration' element={<Registration></Registration>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>
-      
+
     </div>
-    
+
   );
 }
 

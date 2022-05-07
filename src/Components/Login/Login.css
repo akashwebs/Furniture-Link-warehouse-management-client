@@ -1,0 +1,24 @@
+
+.login-form{
+    width: 650px;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 12px ; 
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+.login-form input{
+    width: 100%;
+    margin: 5px 0;
+    padding: 7px 3px;
+    box-sizing: border-box;
+    border: 2px solid #dddd;
+}
+
+@media only screen and (max-width: 650px) {
+    .login-form{
+        width: 100%;
+        box-sizing: border-box;
+    }
+  }
