@@ -6,22 +6,26 @@ import { useParams } from 'react-router-dom';
 const InventoryDetail = () => {
     const [details, setdetails] = useState({})
     const { idName } = useParams()
-    const { name, image, price, quantity, supplier, discripton } = details;
+    const { name, image, price, supplier, discripton } = details;
     const [mainQuantity, setMainQuantity]=useState();
+
     useEffect(() => {
         const run = async () => {
             const { data } = await axios.get(`http://localhost:5000/inventory/${idName}`);
             setdetails(data);
             setMainQuantity(data.quantity);
+            console.log(data)
         }
         run();
     }, [])
 
     // handle deliverd button
 
-    const handleDeliverd=()=>{
+    const handleDeliverd=async()=>{
     const newQuantity=mainQuantity-1;
       setMainQuantity(newQuantity)
+      const {data}=await axios.post(`http://localhost:5000/updateinventory?id=${idName}`,{newQuantity})
+      console.log(data);
     }
     
     
@@ -41,12 +45,12 @@ const InventoryDetail = () => {
                     <Card>
                         <Card.Body>
                             <Card.Title className='fs-3'>{name}</Card.Title>
-                            <Card.Text>
-                                <h5>Price: {price}</h5>
-                                <h5>Quantity: {mainQuantity}</h5>
-                                <h5>Supplier: {supplier}</h5>
-                                <h5>sold: {details?.sold}</h5>
-                            </Card.Text>
+                             <div>
+                                <li>Price: {price}</li>
+                                <li>Quantity: {mainQuantity}</li>
+                                <li>Supplier: {supplier}</li>
+                                <li>sold: {details?.sold}</li>
+                            </div>
                             <Card.Text>
                                 {discripton}
                             </Card.Text>

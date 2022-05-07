@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import {Row } from 'react-bootstrap';
 import Fourniture from '../Fourniture/Fourniture';
 
 const Fornitures = () => {
@@ -19,12 +19,9 @@ const Fornitures = () => {
 
 
             <Row xs={1} md={3} className="g-4">
-               {
-                   fournitures.map(fourniture=><Fourniture
-                    fourniture={fourniture}
-                    key={fourniture?._id}
-                   ></Fourniture>)
-               }
+             {
+                 fournitures.map(furniture=><Fourniture furniture={furniture} key={furniture._id}></Fourniture>)
+             }
             </Row>
         </div>
     );
