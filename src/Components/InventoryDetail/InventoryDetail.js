@@ -24,7 +24,7 @@ const InventoryDetail = () => {
     const handleDeliverd=async()=>{
     const newQuantity=mainQuantity-1;
       setMainQuantity(newQuantity)
-      const {data}=await axios.post(`http://localhost:5000/updateinventory?id=${idName}`,{newQuantity})
+      const {data}=await axios.put(`http://localhost:5000/updateinventory?id=${idName}`,{newQuantity})
       console.log(data);
     }
     
