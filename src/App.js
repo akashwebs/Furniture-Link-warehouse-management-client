@@ -12,6 +12,7 @@ import MyItem from './Components/MyItem/MyItem';
 import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
+import NotFound from './Components/NotFound/NotFound';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>

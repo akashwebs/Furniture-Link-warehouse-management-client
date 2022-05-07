@@ -16,7 +16,6 @@ const ManageProduct = () => {
             const allProducts=products.filter(product=> product._id!==id);
             setProducts(allProducts);
             const {data}=await axios.delete(`http://localhost:5000/ManageProduct/${id}`)
-            console.log(data);
             toast.success('delete succesfully');
         }
     }

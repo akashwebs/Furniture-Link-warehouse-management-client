@@ -12,12 +12,13 @@ const Inventory = () => {
 
     const [isTrue, setIsTrue]=useState(false)
     const [products, setProducts]=useProducts(isTrue);
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,reset } = useForm();
     const [user, loading, error] = useAuthState(auth);
     const handleAddInventory = async(addProducts) => {
         addProducts.email=user.email;
        const {data} =await axios.post(`http://localhost:5000/furniture`,addProducts)
        setIsTrue(true)
+       reset();
     };
 
     return (
@@ -29,6 +30,7 @@ const Inventory = () => {
                     key={product._id}
                     className='add-product-box'
                 >
+                    <img style={{width:'80px', marginRight :'15px'}} src={product.image} alt="" />
                     {product.name}
                 </div>)
             }
