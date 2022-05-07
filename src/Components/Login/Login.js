@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
@@ -23,9 +24,12 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    const handleLogin = logininfo => {
-        console.log(logininfo)
-        signInWithEmailAndPassword(logininfo.email, logininfo.password);
+    const handleLogin = async logininfo => {
+        const loginEmail=logininfo.email;
+        await signInWithEmailAndPassword(loginEmail, logininfo.password);
+
+        const {data}=await axios.post('http://localhost:5000/login', {loginEmail});
+        localStorage.setItem('accessToken',data.accessToken)
     };
     
     
@@ -37,9 +41,10 @@ const Login = () => {
         errorMessage = <p className='text-danger'>{error?.message}</p>;
     }
 
-    if (user) {
+   if (user) {
         navigate(from, { replace: true });
-    }
+        
+   }
 
 
     return (
@@ -48,7 +53,7 @@ const Login = () => {
             <h2>Login into your account</h2>
             <form className='' onSubmit={handleSubmit(handleLogin)}>
                 <input type={'email'} {...register("email")} placeholder='Enter Email' required />
-                <input {...register("password")} placeholder='Enter Password' required />
+                <input type={'password'} {...register("password")} placeholder='Enter Password' required />
                 <input className='btn btn-primary' type="submit" value={'Login'} />
             </form>
 

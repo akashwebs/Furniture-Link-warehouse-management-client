@@ -30,6 +30,7 @@ const ManageProduct = () => {
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Email</th>
                         <th>Price</th>
                         <th>image</th>
                         <th>supplier</th>
@@ -44,6 +45,7 @@ const ManageProduct = () => {
                             key={product._id}>
                             <td>{product._id}</td>
                             <td>{product.name}</td>
+                            <td>{product?.email}</td>
                             <td>{product.price}</td>
                             <td><img src={product.image} className='img-fluid w-25' alt="" /></td>
                             <td>{product.supplier}</td>

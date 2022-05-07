@@ -7,7 +7,6 @@ const Fourniture = ({ furniture }) => {
 
     const { _id, name, price, image, discripton,quantity, supplier } = furniture;
     const navigate = useNavigate();
-    console.log(furniture);
     const handleUpdateButton = (id) => {
         navigate(`/inventory/${id}`)
     }

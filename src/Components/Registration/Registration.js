@@ -9,15 +9,13 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Registration = () => {
 
-
-
-
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    
     const { register, handleSubmit } = useForm();
     const navgiate = useNavigate();
     const [loginUser] = useAuthState(auth);

@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import auth from '../../firebase.init';
 import useProducts from '../../Hooks/useProducts/useProducts';
 import './Inventory.css'
 
@@ -11,10 +13,9 @@ const Inventory = () => {
     const [isTrue, setIsTrue]=useState(false)
     const [products, setProducts]=useProducts(isTrue);
     const { register, handleSubmit } = useForm();
-    
-    
+    const [user, loading, error] = useAuthState(auth);
     const handleAddInventory = async(addProducts) => {
-
+        addProducts.email=user.email;
        const {data} =await axios.post(`http://localhost:5000/furniture`,addProducts)
        setIsTrue(true)
     };
