@@ -6,6 +6,7 @@ import Home from './Components/Home/Home';
 import Footer from './Components/Footer/Footer';
 import Inventory from './Components/Inventory/Inventory';
 import InventoryDetail from './Components/InventoryDetail/InventoryDetail';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -15,11 +16,12 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
         <Route path='/inventory/:idName' element={<InventoryDetail></InventoryDetail>}></Route>
-        
+
 
 
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
       
     </div>
     

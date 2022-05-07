@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {Row } from 'react-bootstrap';
+import useProducts from '../../Hooks/useProducts/useProducts';
 import Fourniture from '../Fourniture/Fourniture';
 
 const Fornitures = () => {
-    const [fournitures, setFournitures] = useState([]);
+    const [fournitures, setFournitures] = useProducts([]);
+    /* 
     useEffect(() => {
         const fethFournituers = async () => {
 
@@ -12,7 +14,7 @@ const Fornitures = () => {
             setFournitures(data);
         }
         fethFournituers();
-    }, [])
+    }, []) */
     return (
         <div className='container'>
             product: {fournitures.length}
@@ -20,7 +22,7 @@ const Fornitures = () => {
 
             <Row xs={1} md={3} className="g-4">
              {
-                 fournitures.map(furniture=><Fourniture furniture={furniture} key={furniture._id}></Fourniture>)
+                 fournitures.slice(0,6).map(furniture=><Fourniture furniture={furniture} key={furniture._id}></Fourniture>)
              }
             </Row>
         </div>
