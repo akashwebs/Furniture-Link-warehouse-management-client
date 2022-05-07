@@ -17,7 +17,6 @@ const InventoryDetail = () => {
             const { data } = await axios.get(`http://localhost:5000/inventory/${idName}`);
             setdetails(data);
             setMainQuantity(data.quantity);
-            console.log(data)
         }
         run();
     }, [])
@@ -42,7 +41,6 @@ const InventoryDetail = () => {
         const newQuantity = mainQuantity - 1;
         setMainQuantity(newQuantity)
         const { data } = await axios.put(`http://localhost:5000/updateinventory?id=${idName}`, { newQuantity })
-        console.log(data);
     }
 
 

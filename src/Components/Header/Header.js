@@ -12,11 +12,11 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="#pricing">Furnitures</Nav.Link>
-                            <Nav.Link href="inventory">inventory</Nav.Link>
                             
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
+                            <Nav.Link href="ManageProduct">Manage Inventory</Nav.Link>
+                            <Nav.Link href="addItmes">Add Items</Nav.Link>
                             
                         </Nav>
                     </Navbar.Collapse>
