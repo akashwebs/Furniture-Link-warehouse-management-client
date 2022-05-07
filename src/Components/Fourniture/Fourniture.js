@@ -1,8 +1,18 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Fourniture = ({fourniture}) => {
-    const {name, image, price,discripton,quantity,supplier }=fourniture;
+    
+    
+    const {name, image, price,discripton,quantity,supplier,_id }=fourniture;
+    const navigate=useNavigate();
+
+    const handleUpdateButton=(id)=>{
+        navigate(`/inventory/${id}`)
+    }
+    
+    
     return (
         <div>
             <Col>
@@ -20,7 +30,7 @@ const Fourniture = ({fourniture}) => {
                             </div>
                         </Card.Text>
                     </Card.Body>
-                    <button className='btn btn-primary'>Update</button>
+                    <button onClick={()=>handleUpdateButton(_id)} className='btn btn-primary'>Update</button>
                 </Card>
             </Col>
         </div>

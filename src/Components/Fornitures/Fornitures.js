@@ -8,7 +8,7 @@ const Fornitures = () => {
     useEffect(() => {
         const fethFournituers = async () => {
 
-            const { data } = await axios.get('Fournitures.json')
+            const { data } = await axios.get('http://localhost:5000/furniture')
             setFournitures(data);
         }
         fethFournituers();
