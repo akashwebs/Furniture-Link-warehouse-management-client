@@ -24,6 +24,7 @@ const InventoryDetail = () => {
     // handle restoke
   const handleRestock = async(stock) => {
     const newQuantity = stock.restock;
+    if(!newQuantity){return toast.error('please give stock number')}
     const {data} = await axios.put(`http://localhost:5000/updateinventory?id=${idName}`, { newQuantity })
     setMainQuantity(newQuantity)
     reset();

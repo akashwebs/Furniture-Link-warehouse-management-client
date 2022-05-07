@@ -35,12 +35,12 @@ const Inventory = () => {
             <Col>
                 <h3>Add Product</h3>
                 <form className='add-product' onSubmit={handleSubmit(handleAddInventory)}>
-                    <input {...register("name")} placeholder='product name' />
-                    <input type='number' {...register("quantity")} placeholder='quantity' />
-                    <input type='number' {...register("price")} placeholder='price' />
-                    <input {...register("supplier")} placeholder='supplier name' />
-                    <textarea {...register("discripton")} placeholder='product details' />
-                    <input {...register("image")} placeholder='image url here' />
+                    <input {...register("name")} placeholder='product name' required/>
+                    <input type='number' {...register("quantity")} placeholder='quantity' required/>
+                    <input type='number' {...register("price")} placeholder='price' required/>
+                    <input {...register("supplier")} placeholder='supplier name' required/>
+                    <textarea {...register("discripton")} placeholder='product details' required/>
+                    <input {...register("image")} placeholder='image url here' required/>
                     <input className='btn btn-primary' type="submit" value={'Add Product'} />
                 </form>
             </Col>
