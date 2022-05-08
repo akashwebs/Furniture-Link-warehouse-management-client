@@ -18,23 +18,11 @@ const Banner = () => {
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h3 className='fs-1'>Modern Furniture</h3>
+                    <p>shop away to win scratch cards and unlock surpirse</p>
                 </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src={'https://i.ibb.co/n6Jnv07/slider-1.jpg'}
-
-                    alt="Second slide"
-                />
-
-                <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
+           
             <Carousel.Item>
                 <img
                     className="d-block w-100"
@@ -44,9 +32,9 @@ const Banner = () => {
                 />
 
                 <Carousel.Caption>
-                    <h3>Third slide label</h3>
+                    <h3 className='fs-1'>A fusion of form and function</h3>
                     <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        one of the most uniq desing we are made
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>

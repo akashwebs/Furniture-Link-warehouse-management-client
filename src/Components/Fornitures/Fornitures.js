@@ -19,7 +19,7 @@ const Fornitures = () => {
     }, []) */
     return (
         <div className='container'>
-            product: {fournitures.length}
+           <h2 className='heading'>Inve<span className='text-danger'>ntory</span> </h2>
 
 
             <Row xs={1} md={3} className="g-4">
