@@ -56,6 +56,7 @@ const Login = () => {
                 <input type={'password'} {...register("password")} placeholder='Enter Password' required />
                 <input className='btn btn-primary' type="submit" value={'Login'} />
             </form>
+            <Link to={'/forgotPassword'}>forgot your password?</Link>
 
             <hr />
 

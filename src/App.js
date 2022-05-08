@@ -13,6 +13,8 @@ import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import NotFound from './Components/NotFound/NotFound';
+import Blog from './Components/Blog/Blog';
+import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 
 function App() {
   return (
@@ -41,8 +43,10 @@ function App() {
              <MyItem></MyItem>
            </RequireAuth>
         }></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
+        <Route path='/forgotPassword' element={<ForgotPassword></ForgotPassword>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
