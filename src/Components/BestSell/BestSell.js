@@ -6,13 +6,20 @@ import './BestSell.css'
 const BestSell = () => {
     const [products, setProducts,sppiner]=useProducts(true);
     const [bestSell, setBestSell]=useState([]);
+   
     useEffect(()=>{
         if(products.length>0){
-            const newPd=[...products];
-            newPd.reverse();
-            setBestSell(newPd);
+      
+            const sortedNumber=products.sort((a,b)=>{
+                const quantity1=parseInt(a.quantity)
+                const quantity2=parseInt(b.quantity)
+                return quantity1-quantity2;
+            });
+            sortedNumber.reverse()
+            setBestSell(sortedNumber);
         }
     },[products])
+    
     
     if(sppiner){
         return <Loading></Loading>
