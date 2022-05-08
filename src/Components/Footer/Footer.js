@@ -4,7 +4,7 @@ import { FaFacebookSquare,FaTwitterSquare,FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div className='mt-5 py-5 bg-dark text-light text-center'>
+        <div className=' py-5 bg-dark text-light text-center'>
             <h1>Furniture Link</h1>
             <div className='fs-5 d-grid g-3'>
                 <Link to={'/'}>home</Link>
