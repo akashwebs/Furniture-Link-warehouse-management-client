@@ -25,6 +25,7 @@ const InventoryDetail = () => {
   const handleRestock = async(stock) => {
     const newQuantity = stock.restock;
     if(!newQuantity){return toast.error('please give stock number')}
+    
     const {data} = await axios.put(`https://cryptic-escarpment-63139.herokuapp.com/updateinventory?id=${idName}`, { newQuantity })
     setMainQuantity(newQuantity)
     reset();
@@ -65,7 +66,7 @@ const InventoryDetail = () => {
                                 <li>Price: {price}</li>
                                 <li>Quantity: {mainQuantity}</li>
                                 <li>Supplier: {supplier}</li>
-                                <li>sold: {details?.sold}</li>
+                                <li>sold: 0</li>
                             </div>
                             <Card.Text>
                                 {discripton}
