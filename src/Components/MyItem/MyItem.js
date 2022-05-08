@@ -51,7 +51,7 @@ const MyItem = () => {
             toast.success('delete succesfully');
         }
     }
-    if(loading){
+    if(isLoading){
         return <Loading></Loading>
     }
     
