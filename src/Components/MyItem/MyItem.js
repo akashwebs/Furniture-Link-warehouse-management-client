@@ -7,24 +7,28 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import useProducts from '../../Hooks/useProducts/useProducts';
+import Loading from '../Loading/Loading';
 
 const MyItem = () => {
     const [myProducts, setMyProducts]=useState([]);
     const [products, setProducts]=useProducts();
     const [user, loading, error] = useAuthState(auth);
+    const [isLoading, setIsLoading]=useState(false);
     const navigate=useNavigate();
     
     useEffect(()=>{
        const runMyitems=async()=>{
            const email=user.email;
-           const url=`http://localhost:5000/products?email=${email}`
+           const url=`https://cryptic-escarpment-63139.herokuapp.com/products?email=${email}`
            try{
+               setIsLoading(true)
             const {data}=await axios.get(url,{
                 headers:{
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             });
             setMyProducts(data);
+            setIsLoading(false)
 
            }catch(error){
             if(error.response.status===403 || error.response.status===401){
@@ -43,11 +47,13 @@ const MyItem = () => {
             
             const allProducts=products.filter(product=> product._id!==id);
             setProducts(allProducts);
-            const {data}=await axios.delete(`http://localhost:5000/ManageProduct/${id}`)
+            const {data}=await axios.delete(`https://cryptic-escarpment-63139.herokuapp.com/ManageProduct/${id}`)
             toast.success('delete succesfully');
         }
     }
-    
+    if(loading){
+        return <Loading></Loading>
+    }
     
     return (
         <div className='container'>

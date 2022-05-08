@@ -4,9 +4,10 @@ import { Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useProducts from '../../Hooks/useProducts/useProducts';
+import Loading from '../Loading/Loading';
 
 const ManageProduct = () => {
-    const [products, setProducts]=useProducts();
+    const [products, setProducts,loading]=useProducts();
     const navigate=useNavigate();
 
     const handleDelete=async (id)=>{
@@ -15,16 +16,18 @@ const ManageProduct = () => {
             
             const allProducts=products.filter(product=> product._id!==id);
             setProducts(allProducts);
-            const {data}=await axios.delete(`http://localhost:5000/ManageProduct/${id}`)
+            const {data}=await axios.delete(`https://cryptic-escarpment-63139.herokuapp.com/ManageProduct/${id}`)
             toast.success('delete succesfully');
         }
     }
-    
+    if(loading){
+        return <Loading></Loading>
+    }
     
     return (
-        <div className='container'>
+        <div className='container mb-4' style={{overflowpX:'auto'}}>
             <h3 className='py-3'>Manage Inventory</h3>
-            <Table striped bordered hover>
+            <Table className='table' striped bordered hover>
                 <thead>
                     <tr>
                         <th>ID</th>

@@ -14,7 +14,7 @@ const InventoryDetail = () => {
 
     useEffect(() => {
         const run = async () => {
-            const { data } = await axios.get(`http://localhost:5000/inventory/${idName}`);
+            const { data } = await axios.get(`https://cryptic-escarpment-63139.herokuapp.com/inventory/${idName}`);
             setdetails(data);
             setMainQuantity(data.quantity);
         }
@@ -25,7 +25,7 @@ const InventoryDetail = () => {
   const handleRestock = async(stock) => {
     const newQuantity = stock.restock;
     if(!newQuantity){return toast.error('please give stock number')}
-    const {data} = await axios.put(`http://localhost:5000/updateinventory?id=${idName}`, { newQuantity })
+    const {data} = await axios.put(`https://cryptic-escarpment-63139.herokuapp.com/updateinventory?id=${idName}`, { newQuantity })
     setMainQuantity(newQuantity)
     reset();
     if(data.matchedCount){
@@ -41,7 +41,7 @@ const InventoryDetail = () => {
     const handleDeliverd = async () => {
         const newQuantity = mainQuantity - 1;
         setMainQuantity(newQuantity)
-        const { data } = await axios.put(`http://localhost:5000/updateinventory?id=${idName}`, { newQuantity })
+        const { data } = await axios.put(`https://cryptic-escarpment-63139.herokuapp.com/updateinventory?id=${idName}`, { newQuantity })
     }
 
 

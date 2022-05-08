@@ -28,7 +28,7 @@ const Login = () => {
         const loginEmail=logininfo.email;
         await signInWithEmailAndPassword(loginEmail, logininfo.password);
 
-        const {data}=await axios.post('http://localhost:5000/login', {loginEmail});
+        const {data}=await axios.post('https://cryptic-escarpment-63139.herokuapp.com/login', {loginEmail});
         localStorage.setItem('accessToken',data.accessToken)
     };
     

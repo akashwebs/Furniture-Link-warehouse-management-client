@@ -16,7 +16,7 @@ const Inventory = () => {
     const [user, loading, error] = useAuthState(auth);
     const handleAddInventory = async(addProducts) => {
         addProducts.email=user.email;
-       const {data} =await axios.post(`http://localhost:5000/furniture`,addProducts)
+       const {data} =await axios.post(`https://cryptic-escarpment-63139.herokuapp.com/furniture`,addProducts)
        setIsTrue(true)
        reset();
     };

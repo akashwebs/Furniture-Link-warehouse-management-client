@@ -11,7 +11,7 @@ const useProducts = (isTrue) => {
 
         const fethFournituers = async () => {
             setLoaading(true)
-            const { data } = await axios.get('http://localhost:5000/furniture')
+            const { data } = await axios.get('https://cryptic-escarpment-63139.herokuapp.com/furniture')
             setFournitures(data);
             setLoaading(false)
         }
