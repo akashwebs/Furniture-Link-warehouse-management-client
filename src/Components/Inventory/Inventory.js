@@ -10,14 +10,14 @@ import './Inventory.css'
 
 const Inventory = () => {
 
-   
-    const [products, setProducts]=useProducts();
+    const [isTrue, setIsTrue]=useState(false)
+    const [products, setProducts]=useProducts(isTrue);
     const { register, handleSubmit,reset } = useForm();
     const [user, loading, error] = useAuthState(auth);
-
     const handleAddInventory = async(addProducts) => {
         addProducts.email=user.email;
-       const {data} =await axios.post(`https://cryptic-escarpment-63139.herokuapp.com/furniture`,addProducts)
+       const {data} =await axios.post(`http://localhost:5000/furniture`,addProducts)
+       setIsTrue(true)
        reset();
     };
 
