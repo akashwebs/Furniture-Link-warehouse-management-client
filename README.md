@@ -24,4 +24,6 @@
 
 ### `website summary`
 
-this is inventory management website, here you can add product, delete product, update stock, delavierd stock and you can see only user specific login user data. data fetch with jwt.
+ It is an inventory management website. Users can update stock. Google, Github, email password-based authentication system User can add products, and manage all products.data fetch with jwt security
+
+
